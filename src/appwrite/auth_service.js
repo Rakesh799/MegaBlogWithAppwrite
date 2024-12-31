@@ -55,9 +55,9 @@ export class AuthService {
         try {
             return await this.account.get()
         } catch (error) {
-            console.log("Appwrite Service :: getCurrentUser :: error", error);
+            console.log("Appwrite Service :: getCurrentUser :: error", error.message);
+            return null; 
         }
-        return null; 
         // why returning null? - if we dont get any account, it might throw error that has some error value. To avoid that trouble we are returning null if we dont get any account.
     }
 
