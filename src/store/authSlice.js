@@ -1,15 +1,14 @@
-// we can make this in a separate folder or directly in store folder. As per our confort. 
-//this is made to track authentication. we will always ask our store that our user is authenticated or not.  
+// Redux slice for managing authentication state  
 
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    status: false,
-    userData: null
+    status: false, // Tracks if the user is authenticated
+    userData: null // Stores authenticated user's data
 }
 
 const authSlice = createSlice({
-    name: "auth",
+    name: "auth", // Name of this slice in the Redux store
     initialState,
     reducers: {
         login: (state, action) => {
@@ -23,5 +22,5 @@ const authSlice = createSlice({
     }
 })
 
-export const {login, logout} = authSlice.actions;
-export default authSlice.reducer;
+export const {login, logout} = authSlice.actions; // Exported actions for dispatching
+export default authSlice.reducer; // Exported reducer for the store
