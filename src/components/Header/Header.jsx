@@ -6,10 +6,10 @@ import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
 
-  //checking user's authentication
+  // Retrieveing authentication status from the Redux store
   const authStatus = useSelector((state) => state.auth.status)
   const navigate = useNavigate()
-  // when we make this type of navigation bar, we make an array and loop through it. 
+
   const navItems = [
     {
       name: 'Home',
