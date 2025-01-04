@@ -12,12 +12,12 @@ const Login = () => {
     const { register, handleSubmit } = useForm()
     const [error, setError] = useState("")
 
-    const login = async (data) => {
+    const handlelogin = async (data) => {
         // console.log(data);
         setError("")
         try {
             const session = await authService.login(data) //AttemptLogin
-            
+
             if (session) {
                 const userData = await authService.getCurrentUser() //Getting Logged-in user's data
                 if (userData) dispatch(storeLogin(userData)) // Saving user to our Redux Store
@@ -47,7 +47,7 @@ const Login = () => {
 
                 {error && <p className='text-red-600 mt-8 text-center'>{error}</p>}
 
-                <form onSubmit={handleSubmit(login)} className='mt-8'>
+                <form onSubmit={handleSubmit(handlelogin)} className='mt-8'>
                     <div className='space-y-5'>
                         <Input
                             label="Email: "
@@ -70,7 +70,7 @@ const Login = () => {
                         />
                         <Button
                             type="submit"
-                            className= "w-full"
+                            className="w-full"
                         >Sign in
                         </Button>
                     </div>
