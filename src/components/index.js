@@ -18,5 +18,5 @@ export {
     Button,
     Input,
     Select,
-    RTE,
+    RTE
 }
