@@ -3,7 +3,7 @@ import service from '../appwrite/config'
 import { PostCard, Container } from '../components'
 
 const AllPosts = () => {
-    const [posts, setPosts] = useState()
+    const [posts, setPosts] = useState([])
     useEffect(() => {
         service.getPosts([]).then((posts) => {
             if (posts) {
