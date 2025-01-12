@@ -2,7 +2,7 @@ import React from 'react'
 import { Editor } from '@tinymce/tinymce-react'
 import { Controller } from 'react-hook-form'
 
-export default function RTE({ name, control, label, defaultValue = ""}) {
+export default function RTE({ name, control, label, defaultValue = "" }) {
 
     return (
         <div>
@@ -10,10 +10,11 @@ export default function RTE({ name, control, label, defaultValue = ""}) {
             <Controller
                 name={name || 'content'}
                 control={control}
-                render={({ field: { onChange } }) => {
+                render={({ field: { onChange } }) => (
                     <Editor
-                        initialValue={defaultValue}
+                        apiKey='rk8ytyadk7ysgc0ym5p4h423muwm5th0aifaxnr0jeovzyn3'
                         onEditorChange={onChange}
+                        initialValue={defaultValue}
                         init={{
                             initialValue: defaultValue,
                             height: 500,
@@ -44,7 +45,7 @@ export default function RTE({ name, control, label, defaultValue = ""}) {
                             content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }"
                         }}
                     />
-                }}
+                )}
             />
         </div>
     )
