@@ -24,16 +24,16 @@ export class AuthService {
         this.client
             .setEndpoint(conf.appwriteUrl)
             .setProject(conf.appwriteProjectId);
-        this.account = new Account()
+        this.account = new Account(this.client)
     }
 
-    async createAccount({email, password, name}){
+    async createAccount({ email, password, name }) {
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name)
             if (userAccount) {
                 // directly logging in
-                return this.login({email, password})
-            }else{
+                return this.login({ email, password })
+            } else {
                 return userAccount;
             }
         } catch (error) {
@@ -42,7 +42,7 @@ export class AuthService {
         }
     }
 
-    async login({email, password}){
+    async login({ email, password }) {
         try {
             return await this.account.createEmailPasswordSession(email, password)
         } catch (error) {
@@ -51,17 +51,17 @@ export class AuthService {
     }
 
     //To check that user is logged in or not 
-    async getCurrentUser(){
+    async getCurrentUser() {
         try {
             return await this.account.get()
         } catch (error) {
             console.log("Appwrite Service :: getCurrentUser :: error", error.message);
-            return null; 
+            return null;
         }
         // why returning null? - if we dont get any account, it might throw error that has some error value. To avoid that trouble we are returning null if we dont get any account.
     }
 
-    async logout(){
+    async logout() {
         try {
             return await this.account.deleteSessions();
         } catch (error) {
