@@ -40,7 +40,7 @@ const Header = () => {
 
   return (
     
-    <header className='bg-gradient-to-l from-purple-700 to-pink-600 py-2'>
+    <header className='bg-[#8B322C] py-2'>
       <Container>
         <nav className='flex items-center'>
           <div className='mr-4'><Link to="/"><Logo width='70px' /></Link></div>
@@ -49,7 +49,7 @@ const Header = () => {
               navItems.map((item) => item.active ?
                 <li key={item.name}>
                   <button
-                    className='inline-block md:px-6 px-1 py-2 duration-200 hover:bg-blue-200 hover:font-bold rounded-full'
+                    className='inline-block md:px-6 px-1 py-2 duration-200 text-white hover:bg-[#f6bbae] hover:text-black font-bold rounded-full'
                     onClick={() => navigate(item.slug)}
                   >
                     {item.name}

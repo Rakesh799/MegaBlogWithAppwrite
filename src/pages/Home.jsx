@@ -20,7 +20,7 @@ const Home = () => {
                 <Container>
                     <div className="flex flex-wrap">
                         <div className="p-2 w-full">
-                            <h1 className="text-2xl font-bold hover:text-purple-950">
+                            <h1 className="text-2xl font-bold hover:text-[#4E342E]">
                                 Login to read posts
                             </h1>
                         </div>

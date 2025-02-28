@@ -24,7 +24,7 @@ function App() {
   }, [])
 
   return !loading ? ( // Renders only after authentication check is complete 
-    <div className='min-h-screen flex flex-wrap content-between bg-gradient-to-br from-purple-500 via-pink-500 to-red-500'>
+    <div className='min-h-screen flex flex-wrap content-between bg-[#f6bbae]'>
       <div className='w-full block'>
         <Header />
         <main>
