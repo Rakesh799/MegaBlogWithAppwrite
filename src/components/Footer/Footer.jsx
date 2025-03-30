@@ -9,8 +9,9 @@ function Footer() {
                 <div className="flex flex-wrap">
                     <div className="w-full p-6 md:w-1/2 lg:w-5/12">
                         <div className="flex h-full flex-col justify-between">
-                            <div className="mb-4 inline-flex items-center">
+                            <div className="mb-4 inline-flex items-center gap-2">
                                 <Logo width="100px" />
+                                <h2 className='font-bold text-2xl'>Rakesh Choudhury</h2>
                             </div>
                             <div>
                                 <p className="text-sm text-gray-900">
@@ -30,7 +31,7 @@ function Footer() {
                                         className=" text-base font-medium text-gray-900 hover:underline"
                                         to="/"
                                     >
-                                        Who I Am
+                                        Introduction
                                     </Link>
                                 </li>
                                 <li className="mb-4">
