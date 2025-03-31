@@ -29,7 +29,8 @@ function Footer() {
                                 <li className="mb-4">
                                     <Link
                                         className=" text-base font-medium text-gray-900 hover:underline"
-                                        to="/"
+                                        to="https://drive.google.com/file/d/1OftwLmjCaNP9TWJ859fCn_oJvn_0l5wD/view?usp=sharing"
+                                        target='_blank'
                                     >
                                         Introduction
                                     </Link>
@@ -37,7 +38,8 @@ function Footer() {
                                 <li className="mb-4">
                                     <Link
                                         className=" text-base font-medium text-gray-900 hover:underline"
-                                        to="/"
+                                        to="https://1mdmrakesh.netlify.app/"
+                                        target='_blank'
                                     >
                                         My Skills
                                     </Link>
@@ -45,7 +47,8 @@ function Footer() {
                                 <li className="mb-4">
                                     <Link
                                         className=" text-base font-medium text-gray-900 hover:underline"
-                                        to="/"
+                                        to="https://reactroutermastery.netlify.app/project"
+                                        target='_blank'
                                     >
                                         Projects
                                     </Link>
@@ -53,7 +56,8 @@ function Footer() {
                                 <li>
                                     <Link
                                         className=" text-base font-medium text-gray-900 hover:underline"
-                                        to="/"
+                                        to="https://drive.google.com/file/d/1OftwLmjCaNP9TWJ859fCn_oJvn_0l5wD/view?usp=sharing"
+                                        target='_blank'
                                     >
                                         Resume
                                     </Link>
@@ -102,7 +106,7 @@ function Footer() {
                             </ul>
                         </div>
                     </div>
-                    <div className="w-full p-6 md:w-1/2 lg:w-3/12"> 
+                    <div className="w-full p-6 md:w-1/2 lg:w-3/12">
                         <div className="h-full">
                             <h3 className="tracking-px mb-9  text-sm font-bold uppercase text-gray-950">
                                 Connect
@@ -111,15 +115,17 @@ function Footer() {
                                 <li className="mb-4">
                                     <Link
                                         className=" text-base font-medium text-gray-900 hover:underline"
-                                        to="/"
+                                        to="https://wa.me/916372930015"
+                                        target='_blank'
                                     >
-                                        Contact Me
+                                        WhatsApp
                                     </Link>
                                 </li>
                                 <li className="mb-4">
                                     <Link
                                         className=" text-base font-medium text-gray-900 hover:underline"
-                                        to="/"
+                                        to="https://linkedin.com/in/rakesh799"
+                                        target='_blank'
                                     >
                                         LinkedIn
                                     </Link>
@@ -127,18 +133,20 @@ function Footer() {
                                 <li className='mb-4'>
                                     <Link
                                         className=" text-base font-medium text-gray-900 hover:underline"
-                                        to="/"
+                                        to="https://github.com/rakesh799"
+                                        target='_blank'
                                     >
                                         GitHub
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link
-                                        className=" text-base font-medium text-gray-900 hover:underline"
-                                        to="/"
+                                    <a
+                                        className=" text-base font-medium text-gray-900 hover:underline cursor-pointer"
+                                        href="mailto:rakeshchoudhury074@gmail.com"
+                                        target='_blank'
                                     >
                                         Email Me
-                                    </Link>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
