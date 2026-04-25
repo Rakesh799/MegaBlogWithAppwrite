@@ -1,0 +1,171 @@
+:root {
+  /* Base palette (from your App.css list) */
+  --color-primary: #7000FF;
+  --color-00: #000000;
+  --color-01: #23005B;
+  --color-02: #3C0090;
+  --color-03: #5700C9;
+  --color-04: #7212FF;
+  --color-05: #8951FF;
+  --color-06: #A178FF;
+  --color-07: #B89BFF;
+  --color-08: #D1BCFF;
+  --color-09: #E9DDFF;
+  --color-10: #F6EDFF;
+  --color-11: #FFFFFF;
+
+  /* Semantic theme */
+  --theme-bg: var(--color-09);
+  --theme-bg-soft: var(--color-10);
+  --theme-surface: var(--color-11);
+  --theme-header: var(--color-01);
+  --theme-primary: var(--color-primary);
+  --theme-primary-strong: var(--color-03);
+  --theme-accent: var(--color-06);
+  --theme-border: var(--color-07);
+  --theme-text: var(--color-01);
+  --theme-text-soft: var(--color-03);
+  --theme-on-primary: var(--color-11);
+  --theme-shadow: rgba(35, 0, 91, 0.2);
+}
+
+body {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: linear-gradient(140deg, var(--theme-bg), var(--theme-bg-soft));
+  color: var(--theme-text);
+}
+
+.nav-shell {
+  background: linear-gradient(90deg, var(--theme-header), var(--theme-primary-strong));
+  box-shadow: 0 8px 18px var(--theme-shadow);
+}
+
+.nav-btn {
+  color: var(--theme-on-primary);
+  border: 1px solid transparent;
+}
+
+.nav-btn:hover {
+  text-decoration: underline;
+}
+
+.app-btn {
+  background: linear-gradient(135deg, var(--theme-primary), var(--theme-primary-strong));
+  color: var(--theme-on-primary);
+  border: 1px solid transparent;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.app-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow: 0 8px 20px var(--theme-shadow);
+}
+
+.app-btn-success {
+  background: linear-gradient(135deg, var(--color-04), var(--theme-primary));
+  color: var(--theme-on-primary);
+}
+
+.app-btn-secondary {
+  background-color: transparent;
+  color: var(--theme-text);
+  border: 1px solid var(--theme-border);
+  font-weight: 700;
+}
+
+.app-btn-secondary:hover {
+  background-color: var(--theme-bg-soft);
+}
+
+.app-btn-danger {
+  background: linear-gradient(135deg, #b42318, #d92d20);
+  color: var(--theme-on-primary);
+  border: 1px solid transparent;
+  font-weight: 700;
+}
+
+.app-card {
+  background-color: var(--theme-bg-soft);
+  border: 1px solid var(--theme-border);
+  box-shadow: 0 10px 24px var(--theme-shadow);
+}
+
+.app-card-title {
+  color: var(--theme-text);
+}
+
+.form-panel {
+  background-color: var(--theme-surface);
+  border: 1px solid var(--theme-border);
+  box-shadow: 0 12px 24px var(--theme-shadow);
+}
+
+.form-input {
+  background-color: var(--theme-surface);
+  color: var(--theme-text);
+  border: 1px solid var(--theme-border);
+}
+
+.form-input:focus {
+  border-color: var(--theme-primary);
+  box-shadow: 0 0 0 3px rgba(112, 0, 255, 0.15);
+}
+
+.muted-text {
+  color: var(--theme-text-soft);
+}
+
+.app-link {
+  color: var(--theme-primary-strong);
+}
+
+.app-link:hover {
+  color: var(--theme-primary);
+}
+
+.error-text {
+  color: var(--theme-primary-strong);
+  font-weight: 600;
+}
+
+.field-error {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.home-title {
+  color: var(--theme-text);
+}
+
+.home-title:hover {
+  color: var(--theme-primary-strong);
+}
+
+.app-footer {
+  background-color: var(--theme-bg-soft);
+  border-top: 1px solid var(--theme-primary-strong);
+}
+
+.footer-text {
+  color: var(--theme-text);
+}
+
+.footer-heading {
+  color: var(--theme-text);
+}
+
+.footer-link {
+  color: var(--theme-text);
+}
+
+.footer-link:hover {
+  color: var(--theme-primary-strong);
+  text-decoration: underline;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import authService from '../appwrite/auth_service'
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../store/authSlice'
@@ -8,13 +8,37 @@ import { useForm } from 'react-hook-form'
 
 const Signup = () => {
     const navigate = useNavigate()
-    const [error, setError] = useState("")
     const dispatch = useDispatch()
-    const { register, handleSubmit } = useForm()
+    const {
+        register,
+        handleSubmit,
+        setError,
+        clearErrors,
+        formState: { errors, isSubmitting }
+    } = useForm()
+
+    const mapSignupError = (error) => {
+        const message = error?.message || ""
+        const normalized = message.toLowerCase()
+
+        if (normalized.includes("password must be between 8 and 256 characters")) {
+            return { password: "Password must be between 8 and 256 characters." }
+        }
+
+        if (normalized.includes("invalid `email`") || normalized.includes("invalid email")) {
+            return { password: "Please check your details and try again." }
+        }
+
+        if (normalized.includes("already exists")) {
+            return { password: "This email is already registered. Try signing in instead." }
+        }
+
+        return { password: "Unable to create account right now. Please try again." }
+    }
 
     // Handles user sign-up
     const handlesignup = async (data) => {
-        setError("") // Reset any previous errors
+        clearErrors()
         try {
             const userData = await authService.createAccount(data) // Creates a new user account
             if (userData) {
@@ -26,13 +50,17 @@ const Signup = () => {
                 navigate("/") // Navigate to the homepage after successful login
             }
         } catch (error) {
-            setError(error.message)
+            const friendlyErrors = mapSignupError(error)
+
+            if (friendlyErrors.password) {
+                setError("password", { type: "server", message: friendlyErrors.password })
+            }
         }
     }
 
     return (
         <div className="flex items-center justify-center">
-            <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
+            <div className={`form-panel mx-auto w-full max-w-lg rounded-xl p-10`}>
                 <div className="mb-2 flex justify-center">
                     <span className="w-full max-w-[100px] flex justify-center">
                         <Logo width="100%" />
@@ -41,33 +69,32 @@ const Signup = () => {
 
                 <h2 className="text-center text-2xl font-bold leading-tight">Sign up to create account</h2>
 
-                <p className="mt-2 text-center text-base text-black/60">
+                <p className="muted-text mt-2 text-center text-base">
                     Already have an account?&nbsp;
                     <Link
                         to="/login"
-                        className="font-medium text-primary transition-all duration-200 hover:underline"
+                        className="app-link font-medium transition-all duration-200 hover:underline"
                     >
                         Sign In
                     </Link>
                 </p>
-
-                {error && <p className='text-red-600 mt-8 text-center'>{error}</p>}
 
                 <form onSubmit={handleSubmit(handlesignup)}>
                     <Input
                         label="Full Name: "
                         placeholder="Enter your Full Name"
                         type="text"
-                        {...register("name", { required: true })}
+                        error={errors.name?.message}
+                        {...register("name", { required: "Please enter your full name." })}
                     />
                     <Input
                         label="Email: "
                         placeholder="Enter your email"
                         type="email"
                         {...register("email", {
-                            required: true,
+                            required: "Please enter your email address.",
                             validate: {
-                                matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) || "Email address must be a valid address",
+                                matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) || "Please enter a valid email address.",
                             }
                         })}
                     />
@@ -75,12 +102,26 @@ const Signup = () => {
                         label="Password: "
                         placeholder="Enter your password"
                         type="password"
-                        {...register("password", { required: true })}
+                        error={errors.password?.message}
+                        {...register("password", {
+                            required: "Please enter a password.",
+                            minLength: {
+                                value: 8,
+                                message: "Password must be at least 8 characters.",
+                            },
+                            maxLength: {
+                                value: 256,
+                                message: "Password must be at most 256 characters.",
+                            },
+                        })}
                     />
                     <Button
                         type="submit"
                         className="w-full mt-8"
-                    >Create Account
+                        isLoading={isSubmitting}
+                        disabled={isSubmitting}
+                    >
+                        {isSubmitting ? "Creating Account..." : "Create Account"}
                     </Button>
 
                 </form>

@@ -1,12 +1,11 @@
 import React from 'react'
 
-const Logo = () => {
+const Logo = ({ width = "auto", textClassName = "text-white" }) => {
   return (
-    <div className='w-14 flex items-center '>
-
-      {/* <img src="logo.png" alt="LOGO" />
-      <img src="two.png" alt="LOGO2" className='md:block hidden'/> */}
-      <img src='logo3.webp' className='rounded-xl' alt='LOGO3'/>
+    <div style={{ width }} className='flex items-center'>
+      <span className={`text-2xl font-extrabold tracking-wide md:text-3xl ${textClassName}`}>
+        MegaBlog
+      </span>
     </div>
   )
 }

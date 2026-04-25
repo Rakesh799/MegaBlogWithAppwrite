@@ -135,7 +135,7 @@ const PostForm = ({ post }) => {
                     {...register("status", { required: true })}
                 />
                 {/* Submit Button */}
-                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
+                <Button type="submit" bgColor={post ? "app-btn-success" : undefined} className="w-full">
                     {post ? "Update" : "Submit"}
                 </Button>
             </div>

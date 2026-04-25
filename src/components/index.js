@@ -12,6 +12,7 @@ import Login from './Login'
 import PostCard from './PostCard'
 import PostForm from './post-form/PostForm'
 import AuthLayout from './AuthLayout'
+import ConfirmModal from './ConfirmModal'
 
 export {
     Header,
@@ -28,4 +29,5 @@ export {
     PostCard,
     PostForm,
     AuthLayout,
+    ConfirmModal,
 }
