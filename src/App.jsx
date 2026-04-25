@@ -4,6 +4,7 @@ import authService from './appwrite/auth_service'
 import { login, logout } from './store/authSlice'
 import { Header, Footer } from './components/index'
 import { Outlet } from 'react-router-dom'
+import './App.css'
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
   }, [])
 
   return !loading ? ( // Renders only after authentication check is complete 
-    <div className='min-h-screen flex flex-wrap content-between bg-[#f6bbae]'>
+    <div className='app-shell flex flex-wrap content-between'>
       <div className='w-full block'>
         <Header />
         <main>
